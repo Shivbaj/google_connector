@@ -1,0 +1,27 @@
+http://5040971a.ngrok.io/webhooks/google_assistant/webhook
+ 
+ 
+
+ 
+ train nlu model :
+ rasa train nlu -c config.yml --verbose
+ Extract it and update path in run_app.py
+ 
+ train core :
+ rasa train core  -d domain.yml
+ Extract it and update path in run_app.py
+ 
+ Start run_app
+ 
+ Expose ngrok on port 5004 
+ 
+ Start SDK :
+ python -m rasa_core_sdk.endpoint --actions actions
+ 
+ Start google
+ 
+gactions update --action_package action.json --project sample-bot-b3759
+ 
+ 
+ 
+gactions test  --action_package action.json --project sample-bot-b3759
